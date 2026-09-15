@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 25px;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3, #c471ed);
+}
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+    pointer-events: none;
+    opacity: 0.7;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    20% { opacity: 0.8; }
+    100% { transform: translateY(-115vh) rotate(360deg); opacity: 0; }
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    width: 100%;
+    max-width: 580px;
+    padding: 45px 30px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 32px;
+    background: rgba(255, 255, 255, 0.17);
+    box-shadow: 0 20px 60px rgba(100, 0, 60, 0.25);
+    backdrop-filter: blur(18px);
+    animation: cardAppear 1.2s ease;
+}
+
+@keyframes cardAppear {
+    from { opacity: 0; transform: translateY(40px) scale(0.94); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.heart-icon {
+    margin-bottom: 15px;
+    font-size: 70px;
+    animation: heartbeat 1.4s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.18); }
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(30px, 7vw, 48px);
+    font-weight: 400;
+}
+
+#typing {
+    min-height: 30px;
+    margin-bottom: 22px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.message {
+    margin-bottom: 25px;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.message p + p {
+    margin-top: 8px;
+}
+
+.shayari {
+    margin: 24px auto 28px;
+    padding: 17px 18px;
+    color: #fff8e8;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 1.75;
+    border: 1px solid rgba(255, 245, 183, 0.32);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.shayari p + p {
+    margin-top: 13px;
+}
+
+.secret-note {
+    display: inline-block;
+    margin-bottom: 27px;
+    padding: 8px 15px;
+    color: #fff7d0;
+    font-family: 'Pacifico', cursive;
+    font-size: 13px;
+    transform: rotate(-2deg);
+}
+
+.question {
+    margin-bottom: 28px;
+    color: #fff5b7;
+    font-size: 21px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 14px 26px;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#yesBtn {
+    color: #ed4777;
+    background: white;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+#thinkBtn {
+    color: white;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+button:hover {
+    transform: translateY(-5px) scale(1.04);
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+#response {
+    display: none;
+    margin-top: 25px;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.8;
+    animation: cardAppear 0.6s ease;
+}
+
+.footer {
+    margin-top: 30px;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+@media (max-width: 450px) {
+    .card { padding: 35px 20px; }
+    .message { font-size: 14px; }
+    .question { font-size: 18px; }
+    .buttons { flex-direction: column; }
+    button { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
